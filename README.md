@@ -1,23 +1,31 @@
 <div align="center">
-
 <img src="assets/icons.png" width="180" alt="MLP FiM Themes icon">
 
-# My Little Pony: Friendship is Magic Themes
+<h1>🦄 Visual Studio Code MLP Themes</h1>
 
-**9 pastel dark themes for VS Code, Cursor, Windsurf & VSCodium** —
-the Mane 6 and the Princesses of Equestria, styled with a
-Catppuccin-inspired design system.
+9 pastel dark themes for VS Code, Cursor, Windsurf & VSCodium - the Mane 6
+and the Princesses of Equestria, styled with a Catppuccin-inspired design
+system and a smart theme switcher.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-rosewater?style=flat)](LICENSE)
-[![VS Code](https://img.shields.io/badge/VS%20Code-%5E1.85.0-89dceb?style=flat)](https://code.visualstudio.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-f9e2af?style=flat)](LICENSE)
+[![VS Code](https://img.shields.io/badge/VS_Code-%5E1.85.0-89dceb?style=flat)](https://code.visualstudio.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Themes](https://img.shields.io/badge/Themes-9-f5c2e7?style=flat)](#themes)
 
 </div>
 
-Low-fatigue by design: layered dark surfaces, soft pastel syntax colors,
-Catppuccin-style invisible borders, accent-driven chrome, and a smart
-switcher with live preview and a Celestia-by-day / Luna-by-night schedule.
+## Overview
 
----
+MLP Themes brings the Mane 6 and the Princesses of Equestria into your
+editor. Every theme shares the same layered surface hierarchy (`crust` →
+`mantle` → `base` → `surface0-2` → `overlay0-2`), Catppuccin-style invisible
+structural borders, accent-driven chrome, pastel-softened syntax colors, a
+16-color terminal palette, bracket pair colorization, and Git decorations -
+no pure blacks, no neon, no eye strain on long sessions.
+
+On top of the themes, a lightweight extension adds a status bar quick
+switcher with live preview, keyboard cycling, per-workspace overrides, and a
+Celestia-by-day / Luna-by-night auto-schedule.
 
 ## Themes
 
@@ -33,28 +41,72 @@ switcher with live preview and a Celestia-by-day / Luna-by-night schedule.
 | ![Princess Celestia](https://img.shields.io/badge/-solar%20%23f9e2af-181518?style=flat) | Princess Celestia | `#f9e2af` solar gold · `#fab387` peach · `#94e2d5` teal |
 | ![Sunset Shimmer](https://img.shields.io/badge/-ember%20%23eba0ac-191314?style=flat) | Sunset Shimmer | `#fab387` peach · `#eba0ac` maroon · `#f38ba8` coral |
 
-All nine share the same layered surface hierarchy (`crust` → `mantle` →
-`base` → `surface0-2`), pastel-softened syntax colors, 16-color terminal
-palette, bracket pair colorization, and Git decorations. No pure blacks,
-no neon.
+## Key Features
 
-## Features
+- 9 complete themes with full workbench coverage: editor, sidebar, tabs,
+  status bar, title bar, panel, inputs, lists, scrollbars, and focus rings.
+- TextMate scopes + semantic tokens tuned for TypeScript/JavaScript, Rust,
+  Java, Python, HTML/CSS, JSON, SQL, and Markdown.
+- `$(sparkle)` status bar item — click for a quick pick with **live preview**
+  that reverts on cancel.
+- `MLP Themes: Next Theme` command (`Ctrl+Alt+T` / `Cmd+Alt+T`) to cycle.
+- `MLP Themes: Set Workspace Theme` for per-workspace overrides.
+- Celestia/Luna auto-schedule with configurable day/night hours.
+- Fully generated theme JSON — one source of truth, zero drift between themes.
 
-- **$(sparkle) Status bar switcher** — click it (bottom-right) for a quick
-  pick with live preview; it reverts if you cancel.
-- **Keyboard cycling** — `Ctrl+Alt+T` (`Cmd+Alt+T` on macOS) cycles themes.
-- **Workspace overrides** — bind a theme to one workspace's settings.
-- **Auto-schedule** — day/night themes with configurable hours.
+## Architecture
 
-## Install
+The project is split into three small, well-separated pieces:
 
-**Marketplace / Open VSX:** Extensions view (`Ctrl+Shift+X`) → search
-**"My Little Pony: Friendship is Magic Themes"** → install → pick a theme via
-`Preferences: Color Theme` or the status bar sparkle.
+- `src/extension.ts` is the runtime extension: status bar item, commands,
+  quick pick, and the auto-schedule timer. Zero runtime dependencies.
+- `src/palette-generator.ts` is a build-time script that compiles the
+  structured Catppuccin-style tokens into the 9 theme JSON files under
+  `themes/`, and validates contrast ratios for every output.
+- `src/theme-catalog.ts` is the shared metadata (labels, files, taglines)
+  consumed by both the generator and the extension.
+
+### How it works
+
+`npm run build:themes` compiles the TypeScript sources and runs the
+generator, which emits one `themes/<character>.json` per pony. VS Code loads
+those files via `contributes.themes` in `package.json`. At runtime the
+extension reads `workbench.colorTheme`, applies themes with
+`workspace.getConfiguration().update()`, and evaluates the auto-schedule on
+startup and every 60 seconds.
+
+## Project Structure
+
+```text
+├── package.json              # manifest: themes, commands, settings, keybindings
+├── tsconfig.json             # strict TypeScript
+├── src/
+│   ├── extension.ts          # status bar, quick pick, commands, auto-schedule
+│   ├── palette-generator.ts  # build-time theme JSON generator + contrast check
+│   └── theme-catalog.ts      # shared theme metadata
+├── themes/                   # 9 generated theme JSON files
+├── assets/icons.png          # extension icon
+├── .github/workflows/        # publish pipeline (vsce → Marketplace + Open VSX)
+├── README.md / LICENSE / CHANGELOG.md
+└── mlp-fim-themes.vsix       # packaged extension (gitignored)
+```
+
+## Requirements
+
+- VS Code `^1.85.0` — also works in Cursor, Windsurf, and VSCodium.
+- Node.js 18+ and npm (development only).
+
+## Getting Started
+
+### Install
+
+**Marketplace / Open VSX:** open the Extensions view (`Ctrl+Shift+X`),
+search **"My Little Pony: Friendship is Magic Themes"**, install, then pick a
+theme via `Preferences: Color Theme` or the status bar sparkle.
 
 **From source:**
 
-```bash
+```powershell
 git clone https://github.com/Arviixzuh/vscode-mlp-themes.git
 cd vscode-mlp-themes
 npm install
@@ -63,21 +115,21 @@ npm run package   # → mlp-fim-themes-*.vsix
 code --install-extension mlp-fim-themes-*.vsix
 ```
 
-## Commands
+**Development host:** open the folder in VS Code and press `F5` — an
+Extension Development Host window opens with the extension loaded.
 
-| Command | Keybinding | What it does |
-| --- | --- | --- |
-| `MLP Themes: Pick Theme` | — | Quick pick with live preview |
-| `MLP Themes: Next Theme` | `Ctrl+Alt+T` / `Cmd+Alt+T` | Cycle all 9 themes |
-| `MLP Themes: Set Workspace Theme` | — | Per-workspace theme override |
+## Usage
 
-## Settings
+| Action | Result |
+| --- | --- |
+| Click the `$(sparkle)` status bar item | Quick pick with live theme preview |
+| `MLP Themes: Next Theme` / `Ctrl+Alt+T` | Cycle through all 9 themes |
+| `MLP Themes: Set Workspace Theme` | Bind a theme to this workspace only |
+| `mlpThemes.autoSchedule.enabled` | Celestia by day, Luna by night |
 
 ```jsonc
 {
   "mlpThemes.showStatusBarItem": true,
-
-  // Celestia by day, Luna by night — checked on startup and every minute.
   "mlpThemes.autoSchedule.enabled": false,
   "mlpThemes.autoSchedule.dayTheme": "Princess Celestia",
   "mlpThemes.autoSchedule.nightTheme": "Princess Luna",
@@ -86,24 +138,22 @@ code --install-extension mlp-fim-themes-*.vsix
 }
 ```
 
-Hours are `0–23` local time and may wrap past midnight
-(e.g. `9` → `2` works as expected).
+Hours are `0–23` local time and may wrap past midnight (`9` → `2` works).
 
 ## Development
 
-```bash
+```powershell
 npm install
-npm run build:themes   # regenerate themes/*.json
+npm run build:themes   # regenerate themes/*.json from src/palette-generator.ts
 npm run compile        # strict TypeScript build → out/
 npm run lint           # typecheck only
 npm run package        # vsce package → .vsix
 ```
 
-Theme JSON is fully generated — edit `src/palette-generator.ts` and re-run
-`npm run build:themes`. The script validates each file and prints WCAG
-contrast ratios.
-
----
+Theme JSON is fully generated — edit `src/palette-generator.ts` (character
+palettes live there) and re-run `npm run build:themes`. The script validates
+each generated file and prints WCAG contrast ratios for foreground, muted,
+and status bar text.
 
 ## License
 
