@@ -1,0 +1,44 @@
+name: Publish Extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint (typecheck)
+        run: npm run lint
+
+      - name: Build themes
+        run: npm run build:themes
+
+      - name: Compile extension
+        run: npm run compile
+
+      - name: Package VSIX
+        run: npx @vscode/vsce package --out mlp-fim-themes.vsix
+
+      - name: Publish to VS Code Marketplace
+        uses: HaaLeo/publish-vscode-extension@v1
+        with:
+          vsceToken: ${{ secrets.VSCE_PAT }}
+          extensionFile: mlp-fim-themes.vsix
+
+      - name: Publish to Open VSX
+        run: npx ovsx publish mlp-fim-themes.vsix
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
