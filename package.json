@@ -1,9 +1,9 @@
 {
   "name": "mlp-fim-themes",
-  "displayName": "My Little Pony: Friendship is Magic Themes",
+  "displayName": "Visual Studio Code MLP Themes",
   "description": "A Catppuccin-inspired pastel dark theme collection featuring the Mane 6 and the Princesses of Equestria, plus a smart theme switcher for VS Code, Cursor, Windsurf, and VSCodium.",
   "version": "1.0.0",
-  "publisher": "mlp-fim",
+  "publisher": "Arviixzuh",
   "author": "Arviixzuh",
   "license": "MIT",
   "engines": {
