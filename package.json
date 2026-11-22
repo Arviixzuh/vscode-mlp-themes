@@ -21,7 +21,7 @@
     "theme",
     "color theme"
   ],
-  "icon": "assets/icons.png",
+  "icon": "assets/icon.png",
   "galleryBanner": {
     "color": "#141221",
     "theme": "dark"
