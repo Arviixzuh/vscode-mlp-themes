@@ -32,12 +32,6 @@ jobs:
       - name: Package VSIX
         run: npx @vscode/vsce package --out mlp-fim-themes.vsix
 
-      - name: Publish to VS Code Marketplace
-        uses: HaaLeo/publish-vscode-extension@v1
-        with:
-          vsceToken: ${{ secrets.VSCE_PAT }}
-          extensionFile: mlp-fim-themes.vsix
-
       - name: Publish to Open VSX
         run: npx ovsx publish mlp-fim-themes.vsix
         env:
