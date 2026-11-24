@@ -7,6 +7,8 @@
 and the Princesses of Equestria, styled with a Catppuccin-inspired design
 system and a smart theme switcher.
 
+[![VS Code Marketplace](https://badgen.net/vs-marketplace/v/Arviixzuh.mlp-fim-themes?label=VS%20Code%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=Arviixzuh.mlp-fim-themes)
+[![Open VSX](https://img.shields.io/open-vsx/v/Arviixzuh/mlp-fim-themes?label=Open%20VSX&logo=eclipse-ide)](https://open-vsx.org/extension/Arviixzuh/mlp-fim-themes)
 [![License: MIT](https://img.shields.io/badge/License-MIT-f9e2af?style=flat)](LICENSE)
 [![VS Code](https://img.shields.io/badge/VS_Code-%5E1.85.0-89dceb?style=flat)](https://code.visualstudio.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -29,17 +31,17 @@ Celestia-by-day / Luna-by-night auto-schedule.
 
 ## Themes
 
-| Theme | Character | Signature accents |
-| --- | --- | --- |
-| ![Twilight Sparkle](https://img.shields.io/badge/-lavender%20%23cba6f7-141221?style=flat) | Twilight Sparkle | `#cba6f7` mauve · `#f5c2e7` pink · `#f9e2af` cream |
-| ![Rainbow Dash](https://img.shields.io/badge/-sky%20%2389dceb-111824?style=flat) | Rainbow Dash | `#89dceb` sky · `#74c7ec` sapphire · `#f38ba8` coral |
-| ![Fluttershy](https://img.shields.io/badge/-rose%20%23f5c2e7-1e151a?style=flat) | Fluttershy | `#f9e2af` buttercream · `#f5e0dc` rosewater · `#a6e3a1` sage |
-| ![Rarity](https://img.shields.io/badge/-periwinkle%20%23b4befe-14151e?style=flat) | Rarity | `#cdd6f4` pearl · `#89b4fa` sapphire · `#cba6f7` amethyst |
-| ![Applejack](https://img.shields.io/badge/-peach%20%23fab387-191512?style=flat) | Applejack | `#fab387` peach · `#f9e2af` yellow · `#a6e3a1` orchard |
-| ![Pinkie Pie](https://img.shields.io/badge/-flamingo%20%23f2cdcd-191219?style=flat) | Pinkie Pie | `#f2cdcd` flamingo · `#f5c2e7` pink · `#89dceb` sky |
-| ![Princess Luna](https://img.shields.io/badge/-midnight%20%2389b4fa-0e101c?style=flat) | Princess Luna | `#89b4fa` starry blue · `#bac2de` lunar silver · `#b4befe` lavender |
-| ![Princess Celestia](https://img.shields.io/badge/-solar%20%23f9e2af-181518?style=flat) | Princess Celestia | `#f9e2af` solar gold · `#fab387` peach · `#94e2d5` teal |
-| ![Sunset Shimmer](https://img.shields.io/badge/-ember%20%23eba0ac-191314?style=flat) | Sunset Shimmer | `#fab387` peach · `#eba0ac` maroon · `#f38ba8` coral |
+| Theme                                                                                     | Character         | Signature accents                                                   |
+| ----------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------- |
+| ![Twilight Sparkle](https://img.shields.io/badge/-lavender%20%23cba6f7-141221?style=flat) | Twilight Sparkle  | `#cba6f7` mauve · `#f5c2e7` pink · `#f9e2af` cream                  |
+| ![Rainbow Dash](https://img.shields.io/badge/-sky%20%2389dceb-111824?style=flat)          | Rainbow Dash      | `#89dceb` sky · `#74c7ec` sapphire · `#f38ba8` coral                |
+| ![Fluttershy](https://img.shields.io/badge/-rose%20%23f5c2e7-1e151a?style=flat)           | Fluttershy        | `#f9e2af` buttercream · `#f5e0dc` rosewater · `#a6e3a1` sage        |
+| ![Rarity](https://img.shields.io/badge/-periwinkle%20%23b4befe-14151e?style=flat)         | Rarity            | `#cdd6f4` pearl · `#89b4fa` sapphire · `#cba6f7` amethyst           |
+| ![Applejack](https://img.shields.io/badge/-peach%20%23fab387-191512?style=flat)           | Applejack         | `#fab387` peach · `#f9e2af` yellow · `#a6e3a1` orchard              |
+| ![Pinkie Pie](https://img.shields.io/badge/-flamingo%20%23f2cdcd-191219?style=flat)       | Pinkie Pie        | `#f2cdcd` flamingo · `#f5c2e7` pink · `#89dceb` sky                 |
+| ![Princess Luna](https://img.shields.io/badge/-midnight%20%2389b4fa-0e101c?style=flat)    | Princess Luna     | `#89b4fa` starry blue · `#bac2de` lunar silver · `#b4befe` lavender |
+| ![Princess Celestia](https://img.shields.io/badge/-solar%20%23f9e2af-181518?style=flat)   | Princess Celestia | `#f9e2af` solar gold · `#fab387` peach · `#94e2d5` teal             |
+| ![Sunset Shimmer](https://img.shields.io/badge/-ember%20%23eba0ac-191314?style=flat)      | Sunset Shimmer    | `#fab387` peach · `#eba0ac` maroon · `#f38ba8` coral                |
 
 ## Key Features
 
@@ -120,12 +122,12 @@ Extension Development Host window opens with the extension loaded.
 
 ## Usage
 
-| Action | Result |
-| --- | --- |
-| Click the `$(sparkle)` status bar item | Quick pick with live theme preview |
-| `MLP Themes: Next Theme` / `Ctrl+Alt+T` | Cycle through all 9 themes |
-| `MLP Themes: Set Workspace Theme` | Bind a theme to this workspace only |
-| `mlpThemes.autoSchedule.enabled` | Celestia by day, Luna by night |
+| Action                                  | Result                              |
+| --------------------------------------- | ----------------------------------- |
+| Click the `$(sparkle)` status bar item  | Quick pick with live theme preview  |
+| `MLP Themes: Next Theme` / `Ctrl+Alt+T` | Cycle through all 9 themes          |
+| `MLP Themes: Set Workspace Theme`       | Bind a theme to this workspace only |
+| `mlpThemes.autoSchedule.enabled`        | Celestia by day, Luna by night      |
 
 ```jsonc
 {
@@ -134,7 +136,7 @@ Extension Development Host window opens with the extension loaded.
   "mlpThemes.autoSchedule.dayTheme": "Princess Celestia",
   "mlpThemes.autoSchedule.nightTheme": "Princess Luna",
   "mlpThemes.autoSchedule.dayStartHour": 7,
-  "mlpThemes.autoSchedule.nightStartHour": 19
+  "mlpThemes.autoSchedule.nightStartHour": 19,
 }
 ```
 
@@ -159,6 +161,6 @@ and status bar text.
 
 [MIT](LICENSE)
 
-*My Little Pony: Friendship is Magic* and its characters are trademarks of
+_My Little Pony: Friendship is Magic_ and its characters are trademarks of
 Hasbro. This is an unofficial fan project, not affiliated with or endorsed
 by Hasbro.
